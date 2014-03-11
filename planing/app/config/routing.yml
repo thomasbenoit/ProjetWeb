@@ -1,0 +1,5 @@
+iut_planing:
+    resource: "@IUTPlaningBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
