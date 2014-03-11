@@ -1,0 +1,45 @@
+<?php
+
+namespace IUT\PlaningBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reservation
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="IUT\PlaningBundle\Entity\ReservationRepository")
+ */
+class Reservation
+{
+  /**
+   * @var integer
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+  /**
+   * @ORM\OneToOne(targetEntity="Sdz\BlogBundle\Entity\Activite", cascade={"persist"})
+   */
+  private $activite;
+
+  /**
+   * @ORM\ManyToOne(targetEntity="Sdz\BlogBundle\Entity\User")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $user;
+
+
+  /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
