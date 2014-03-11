@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends "IUTPlaningBundle::layout.html.twig" %}
+
+{% block body %}
+<div class="row-fluid">
+<div class="span3">
+	<p>Hello {{ name }}!</p>
+</div>
+</div>
+{% endblock %}
