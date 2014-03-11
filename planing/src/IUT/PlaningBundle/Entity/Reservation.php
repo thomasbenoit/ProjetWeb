@@ -12,28 +12,37 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
-  /**
-   * @var integer
-   *
-   * @ORM\Column(name="id", type="integer")
-   * @ORM\Id
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-  private $id;
-
-  /**
-   * @ORM\OneToOne(targetEntity="Sdz\BlogBundle\Entity\Activite", cascade={"persist"})
-   */
-  private $activite;
-
-  /**
-   * @ORM\ManyToOne(targetEntity="Sdz\BlogBundle\Entity\User")
-   * @ORM\JoinColumn(nullable=false)
-   */
-  private $user;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
 
-  /**
+
+    /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\User", cascade={"persist"})
+     */
+    private $usr;
+
+   /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\Date", cascade={"persist"})
+     */
+    private $date;
+
+   /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\Activite", cascade={"persist"})
+     */
+    private $activite;
+
+
+
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -44,12 +53,58 @@ class Reservation
     }
 
     /**
-     * Set activite
+     * Set usr
      *
-     * @param \Sdz\BlogBundle\Entity\Activite $activite
+     * @param \IUT\PlaningBundle\Entity\User $usr
      * @return Reservation
      */
-    public function setActivite(\Sdz\BlogBundle\Entity\Activite $activite = null)
+    public function setUsr(\IUT\PlaningBundle\Entity\User $usr = null)
+    {
+        $this->usr = $usr;
+
+        return $this;
+    }
+
+    /**
+     * Get usr
+     *
+     * @return \IUT\PlaningBundle\Entity\User 
+     */
+    public function getUsr()
+    {
+        return $this->usr;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \IUT\PlaningBundle\Entity\Date $date
+     * @return Reservation
+     */
+    public function setDate(\IUT\PlaningBundle\Entity\Date $date = null)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \IUT\PlaningBundle\Entity\Date 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set activite
+     *
+     * @param \IUT\PlaningBundle\Entity\Activite $activite
+     * @return Reservation
+     */
+    public function setActivite(\IUT\PlaningBundle\Entity\Activite $activite = null)
     {
         $this->activite = $activite;
 
@@ -59,33 +114,10 @@ class Reservation
     /**
      * Get activite
      *
-     * @return \Sdz\BlogBundle\Entity\Activite 
+     * @return \IUT\PlaningBundle\Entity\Activite 
      */
     public function getActivite()
     {
         return $this->activite;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Sdz\BlogBundle\Entity\User $user
-     * @return Reservation
-     */
-    public function setUser(\Sdz\BlogBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Sdz\BlogBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

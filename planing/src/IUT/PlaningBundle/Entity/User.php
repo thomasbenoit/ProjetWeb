@@ -24,23 +24,16 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="Nom", type="string", length=255)
+     * @ORM\Column(name="pseudo", type="string", length=255)
      */
-    private $nom;
+    private $pseudo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Prenom", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255)
      */
-    private $prenom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="passwd", type="string", length=255)
-     */
-    private $passwd;
+    private $password;
 
 
     /**
@@ -54,71 +47,48 @@ class User
     }
 
     /**
-     * Set nom
+     * Set pseudo
      *
-     * @param string $nom
+     * @param string $pseudo
      * @return User
      */
-    public function setNom($nom)
+    public function setPseudo($pseudo)
     {
-        $this->nom = $nom;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get pseudo
      *
      * @return string 
      */
-    public function getNom()
+    public function getPseudo()
     {
-        return $this->nom;
+        return $this->pseudo;
     }
 
     /**
-     * Set prenom
+     * Set password
      *
-     * @param string $prenom
+     * @param string $password
      * @return User
      */
-    public function setPrenom($prenom)
+    public function setPassword($password)
     {
-        $this->prenom = $prenom;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get prenom
+     * Get password
      *
      * @return string 
      */
-    public function getPrenom()
+    public function getPassword()
     {
-        return $this->prenom;
-    }
-
-    /**
-     * Set passwd
-     *
-     * @param string $passwd
-     * @return User
-     */
-    public function setPasswd($passwd)
-    {
-        $this->passwd = $passwd;
-
-        return $this;
-    }
-
-    /**
-     * Get passwd
-     *
-     * @return string 
-     */
-    public function getPasswd()
-    {
-        return $this->passwd;
+        return $this->password;
     }
 }

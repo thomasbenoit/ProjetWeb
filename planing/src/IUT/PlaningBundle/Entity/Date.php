@@ -5,12 +5,12 @@ namespace IUT\PlaningBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Activite
+ * Date
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="IUT\PlaningBundle\Entity\ActiviteRepository")
+ * @ORM\Entity(repositoryClass="IUT\PlaningBundle\Entity\DateRepository")
  */
-class Activite
+class Date
 {
     /**
      * @var integer
@@ -22,11 +22,11 @@ class Activite
     private $id;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="nomactivite", type="string", length=255)
+     * @ORM\Column(name="date", type="datetime")
      */
-    private $nomactivite;
+    private $date;
 
 
     /**
@@ -40,25 +40,25 @@ class Activite
     }
 
     /**
-     * Set nomactivite
+     * Set date
      *
-     * @param string $nomactivite
-     * @return Activite
+     * @param \DateTime $date
+     * @return Date
      */
-    public function setNomactivite($nomactivite)
+    public function setDate($date)
     {
-        $this->nomactivite = $nomactivite;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get nomactivite
+     * Get date
      *
-     * @return string 
+     * @return \DateTime 
      */
-    public function getNomactivite()
+    public function getDate()
     {
-        return $this->nomactivite;
+        return $this->date;
     }
 }

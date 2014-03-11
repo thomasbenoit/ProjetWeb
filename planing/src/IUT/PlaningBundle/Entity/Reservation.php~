@@ -12,28 +12,37 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
-  /**
-   * @var integer
-   *
-   * @ORM\Column(name="id", type="integer")
-   * @ORM\Id
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-  private $id;
-
-  /**
-   * @ORM\OneToOne(targetEntity="Sdz\BlogBundle\Entity\Activite", cascade={"persist"})
-   */
-  private $activite;
-
-  /**
-   * @ORM\ManyToOne(targetEntity="Sdz\BlogBundle\Entity\User")
-   * @ORM\JoinColumn(nullable=false)
-   */
-  private $user;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
 
-  /**
+
+    /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\User", cascade={"persist"})
+     */
+    private $usr;
+
+   /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\Date", cascade={"persist"})
+     */
+    private $date;
+
+   /**
+     * @ORM\OneToOne(targetEntity="IUT\PlaningBundle\Entity\Activite", cascade={"persist"})
+     */
+    private $activite;
+
+
+
+
+
+    /**
      * Get id
      *
      * @return integer 
